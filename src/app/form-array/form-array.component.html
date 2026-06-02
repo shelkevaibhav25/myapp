@@ -1,0 +1,99 @@
+<section class="employee-form-page">
+  <div class="employee-form-card">
+    <div class="card-header">
+      <h2>Employee Project Form</h2>
+      <button class="btn btn-success">List</button>
+    </div>
+
+    <div [formGroup]="employeeForm" class="form-body">
+      <div class="left-panel">
+        <h3>Employee Details</h3>
+
+        <div class="field-row">
+          <label>Employee Name</label>
+          <input type="text" placeholder="Employee name" formControlName="empName"  value="" />
+        </div>
+
+        <div class="field-row">
+          <label>Mobile</label>
+          <input type="text" placeholder="Mobile" formControlName="mobile"  value="" />
+        </div>
+
+        <div class="field-row">
+          <label>City</label>
+          <input type="text" placeholder="City" formControlName="city"  value="" />
+        </div>
+
+        <div class="field-row">
+          <label>State</label>
+          <input type="text" placeholder="Enter state" formControlName="state"  value="" />
+        </div>
+      </div>
+
+      <div class="right-panel">
+        <div class="section-header">
+          <h3>Project Details</h3>
+          <button class="btn btn-primary btn-small" (click)="addProject()">+ Add Project</button>
+        </div>
+
+        <div formArrayName="projects" class="project-card">
+            @for(control of  getProjetFormControlArray.controls; track $index; let index = $index){
+        <div class="project-row" [formGroupName]="index">
+            <div class="field-row field-inline">
+              <label>Project Name</label>
+              <input type="text" placeholder="Project name" formControlName="projectName"  value="" />
+            </div>
+            <div class="field-row field-inline">
+              <label>Technology</label>
+              <input type="text" placeholder="Technology" formControlName="leadName"  value="" />
+            </div>
+            <div class="field-row field-inline">
+              <label>Lead Name</label>
+              <input type="text" placeholder="Lead name" formControlName="technology"  value="" />
+            </div>
+            <button class="btn btn-outline-danger" (click)="removeForm(index)">Remove</button>
+          </div>
+
+            }
+         
+        </div>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <button class="btn btn-secondary">Reset</button>
+      <button class="btn btn-primary" (click)="onSaveEmployeeForm()">Submit</button>
+    </div>
+  </div>
+
+  <div class="table-card">
+    <h3>Employee Project Details</h3>
+    <div class="table-responsive">
+      <table>
+        <thead>
+          <tr>
+            <th>Employee Name</th>
+            <th>Mobile</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+            @for(employee of employeeArray(); let index = $index; track index){
+        <tr>
+            <td>{{employee.empName}}</td>
+            <td>{{employee.mobile}}</td>
+            <td>{{employee.city}}</td>
+            <td>{{employee.state}}</td>
+          </tr>
+
+            }
+          
+          
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+

@@ -1,0 +1,68 @@
+<div class="container py-4">
+  <div class="row gy-4">
+    <div class="col-12">
+      <div class="card shadow-sm border-0">
+        <div class="card-body">
+          <h2 class="card-title mb-3">Category Overview</h2>
+          <p class="text-muted mb-4">Static display of a category object with a modern Bootstrap table and a form preview.</p>
+
+          <div class="table-responsive mb-4">
+            <table class="table table-hover align-middle rounded overflow-hidden">
+              <thead class="table-light">
+                <tr>
+                  <th scope="col">Category Id</th>
+                  <th scope="col">Category Name</th>
+                  <th scope="col">Active</th>
+                  <th scope="col">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                @for(catgory of categories(); track catgory.categoryId ){
+                <tr>
+                  <td>{{catgory.categoryId}}</td>
+                  <td>{{catgory.categoryName}}</td>
+                  <td><span class="badge" [ngClass]="catgory.isActive? 'bg-success':'bg-danger'">{{catgory.isActive}}</span></td>
+                  <td>
+                    <button type="button" class="btn btn-sm btn-outline-primary me-2" (click)="onEditCategory(catgory)">Edit</button>
+                    <button type="button" class="btn btn-sm btn-outline-danger">Delete</button>
+                  </td>
+                </tr>
+                }
+                
+            </table>
+          </div>
+
+          <div class="card border-0 bg-light p-4">
+            <h3 class="h5 mb-3">Category Form</h3>
+            <form [formGroup]="categoryForm">
+              <div class="mb-3">
+                <label for="categoryId" class="form-label">Category Id</label>
+                <input type="text" id="categoryId" formControlName="categoryId" class="form-control form-control-lg" value="0" readonly>
+              </div>
+              <div class="mb-3">
+                <label for="categoryName" class="form-label">Category Name</label>
+                <input type="text" id="categoryName" formControlName="categoryName" class="form-control form-control-lg" value="string" placeholder="Enter category name">
+              </div>
+              <div class="form-check form-switch mb-4">
+                <input class="form-check-input" formControlName="isActive" type="checkbox" id="isActive" checked="">
+                <label class="form-check-label" for="isActive">Active</label>
+              </div>
+              <div class="d-flex gap-2">
+                @if(categoryForm.controls['categoryId'].value == 0 || categoryForm.controls['categoryId'].value === null ){
+                     <button type="button" class="btn btn-primary btn-lg" (click)="onSave()">Save</button>
+                }
+                @else{
+                     <button type="button" class="btn btn-primary btn-lg" (click)="updateCategory()">Update</button>
+                }
+               
+               
+                <button type="button" class="btn btn-outline-secondary btn-lg" (click)="onCancel()">Cancel</button>
+              </div>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

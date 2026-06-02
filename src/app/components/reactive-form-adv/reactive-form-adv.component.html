@@ -1,0 +1,68 @@
+<div class="container py-4">
+  <div class="row justify-content-center">
+    <div class="col-xl-8 col-lg-9">
+      <div class="card border-0 shadow-sm">
+        <div class="card-body p-4 p-md-5">
+          <div class="d-flex align-items-center justify-content-between mb-4">
+            <div>
+              <h2 class="h4 mb-1 text-primary">User Registration</h2>
+            </div>
+            
+          </div>
+
+          <form [formGroup]="userForm">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label for="name" class="form-label text-info">Name</label>
+                <input type="text" id="name" formControlName="name" class="form-control form-control-lg border-info shadow-sm" value="" placeholder="Enter full name">
+              </div>
+              <div class="col-md-6">
+                <label for="email" class="form-label text-success">Email</label>
+                <input type="email" id="email" formControlName="email"  class="form-control form-control-lg border-success shadow-sm" value="" placeholder="name@example.com">
+              </div>
+              <div class="col-12">
+                <label for="city" class="form-label text-warning">City</label>
+                <input type="text" id="city" formControlName="city"  class="form-control form-control-lg border-warning shadow-sm" value="" placeholder="Enter city">
+              </div>
+              <div class="col-12">
+                <div class="form-check form-switch d-flex align-items-center gap-2">
+                  <input class="form-check-input" formControlName="isDocumentNeeded"  type="checkbox" id="isDocumentNeeded">
+                  <label class="form-check-label fw-semibold mb-0" for="isDocumentNeeded">Document Required</label>
+                </div>
+
+              </div>
+              <!-- @if(userForm.controls['isDocumentNeeded'].value){ -->
+                <div class="col-md-6">
+                <label for="documentName"  class="form-label text-secondary">Document Name</label>
+                <input type="text" id="documentName" formControlName="documentName" class="form-control form-control-lg border-secondary shadow-sm" value="" placeholder="Enter document name">
+                @if(userForm.controls['documentName'].touched || userForm.controls['documentName'].dirty ){
+                    <span *ngIf="userForm.controls['documentName']?.errors?.['required']" class="text-danger">This field is required</span>
+                }
+               
+              </div>
+              <div class="col-md-6">
+                <label for="documentNo"  class="form-label text-danger">Document No.</label>
+                <input type="text" id="documentNo" formControlName="documentNo" class="form-control form-control-lg border-danger shadow-sm" value="" placeholder="Enter document number">
+                 @if(userForm.controls['documentNo'].touched || userForm.controls['documentNo'].dirty ){
+                    <span *ngIf="userForm.controls['documentNo']?.errors?.['required']" class="text-danger">This field is required</span>
+                 }
+                
+              </div>
+
+              <!-- } -->
+              
+            </div>
+
+            <div class="row mt-4">
+              <div class="col-12 d-flex flex-wrap gap-2">
+                <button type="button" class="btn btn-gradient btn-lg text-white" style="background: linear-gradient(135deg,#4f46e5,#06b6d4);">Submit</button>
+                <button type="button" class="btn btn-outline-secondary btn-lg">Reset</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,81 @@
+<div class="row">
+    <div class="col-3">
+        <div class="bg-danger p-3" *ngIf="isShow">
+            Div1
+        </div>
+
+    </div>
+    <div class="col-3">
+        <select class="form-select" name="" id="" [(ngModel)]="caste">
+            <option value="OBC">OBC</option>
+            <option value="SC_NT" >SC_NT</option>
+            <option value="OTHER">OTHER</option>
+        </select>
+    </div>
+    <div class="col-3" >
+        <input *ngIf="caste === 'OTHER'"  type="text" class="form-control" placeholder="Enter Other Caste"/>
+
+    </div>
+
+    <div class="col-3">
+        @if(checkBoxValue){
+            <div  class="p-3 bg-success">
+                DIV2
+            </div>
+        }@else{
+            <p>To see the DIV2 check the checkbox</p>
+        }
+        
+            
+    </div>
+
+</div>
+<hr>
+<div class="row">
+    <!-- <div class="col-3">
+        <button class="btn btn-success" (click)="show()">Show</button>
+        <button class="btn btn-danger"(click)="hide()">Hide</button>
+    </div> -->
+
+    <div class="col-3">
+        <button class="btn btn-success" (click)="visibility('Show')">Show</button>
+        <button class="btn btn-danger"(click)="visibility('Hide')">Hide</button>
+    </div>
+
+    <div class="col-3">
+        <input type="checkbox" [(ngModel)]="checkBoxValue" />
+        {{checkBoxValue}}
+    </div>
+
+</div>
+
+<div class="row">
+    <div class="col-3">
+        <textarea [(ngModel)]="textValue" (input)="textBoxHasValue()" ></textarea>
+    </div>
+
+    <div class="col-3">
+        <textarea [(ngModel)]="address" ></textarea>
+    </div>
+
+    <div class="col-3">
+        
+             <span *ngIf="isPinPresent && isSearchPinClicked" class="text-success">Pin is present</span>
+     
+            <span *ngIf="!isPinPresent && isSearchPinClicked " class="text-danger">Pin is not present</span>
+        
+     
+        
+    </div>
+
+</div>
+<div class="row">
+    <div class="col-3">
+        <button [disabled]="isValuePresent">Save</button>
+    </div>
+
+    <div class="col-3">
+        <button (click)="searchPin()" >Search pin</button>
+    </div>
+</div>
+

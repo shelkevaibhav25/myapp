@@ -1,0 +1,37 @@
+<p>admin works!</p>
+
+<div class="row">
+    <div class="col-3">
+        <input type="text" placeholder="Enter Name">
+    </div>
+
+    <div class="col-3">
+        <button>Save User</button>
+    </div>
+
+
+
+</div>
+
+
+
+<div class="row">
+
+    <div class="col-3">
+        <button class="btn btn-primary" (click)="navigateTOdata()">Navigate to data types</button>
+    </div>
+
+     <div class="col-3">
+        <button class="btn btn-primary" (click)="navigateTOdatabinding()">Navigate to data binding</button>
+    </div>
+    
+    <div class="col-3">
+        <a routerLink="/adminpage">Go to Admin</a>
+    </div>
+
+    <div class="col-3">
+        <button routerLink="/data-binding" class="btn btn-warning">Go to Data Binding</button>
+
+    </div>
+    
+</div>
