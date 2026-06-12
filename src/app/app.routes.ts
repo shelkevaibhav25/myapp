@@ -9,6 +9,12 @@ import { ReactiveFormAdvComponent } from './components/reactive-form-adv/reactiv
 import { FormArray } from '@angular/forms';
 import { FormArrayComponent } from './form-array/form-array.component';
 import { NgTemplateContainerComponent } from './components/ng-template-container/ng-template-container.component';
+import { RxJsComponent } from './components/rx-js/rx-js.component';
+import { RxjsOperatorsComponent } from './components/rxjs-operators/rxjs-operators.component';
+import { SubBehComponent } from './components/sub-beh/sub-beh.component';
+import { CounterComponent } from './components/counter/counter.component';
+import { SingalComponent } from './components/singal/singal.component';
+import { SignalAdvComponent } from './components/signal-adv/signal-adv.component';
 
 export const routes: Routes = [
     {
@@ -49,6 +55,30 @@ export const routes: Routes = [
     {
         path:'ngTemplateCotainer',
         component: NgTemplateContainerComponent
+    },
+    {
+        path:'RxJs',
+        component: RxJsComponent
+    },
+    {
+        path:'RxJs-operator',
+        component: RxjsOperatorsComponent
+    },
+    {
+        path:'SubBeh',
+        component: SubBehComponent
+    },
+    {
+        path:'counter',
+        component: CounterComponent
+    },
+    {
+        path:'singnal',
+        component: SingalComponent
+    },
+    {
+        path:'singnalAdv',
+        component: SignalAdvComponent
     },
     {
         path: "**",

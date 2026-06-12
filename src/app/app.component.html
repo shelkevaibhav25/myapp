@@ -10,7 +10,7 @@
 
             <a class="nav-link" routerLink="adminpage" routerLinkActive="active-link" >Admin Page</a>
             
-        </li>
+        <!-- </li>
         <li class="nav-item" style="margin-top:-12px;">
           <a class="nav-link"  routerLink="dataTypes" routerLinkActive="active-link" >Data Types</a>
         </li>
@@ -18,7 +18,7 @@
           <a class="nav-link"  routerLink="data-binding" routerLinkActive="active-link" >Data Binding</a>
         </li>
         <li class="nav-item" style="margin-top:-12px;">
-          <a class="nav-link"  routerLink="hideShow" routerLinkActive="active-link" >HideShow</a>
+          <a class="nav-link"  routerLink="hideShow" routerLinkActive="active-link" >HideShow</a> -->
         </li>
          <li class="nav-item" style="margin-top:-12px;">
           <a class="nav-link"  routerLink="category" routerLinkActive="active-link" >Category</a>
@@ -32,9 +32,37 @@
         <li class="nav-item" style="margin-top:-12px;">
           <a class="nav-link"  routerLink="ngTemplateCotainer" routerLinkActive="active-link" >Ng Template/Container</a>
         </li>
+         <li class="nav-item" style="margin-top:-12px;">
+          <a class="nav-link"  routerLink="RxJs" routerLinkActive="active-link" >RxJs</a>
+        </li>
+         <li class="nav-item" style="margin-top:-12px;">
+          <a class="nav-link"  routerLink="RxJs-operator" routerLinkActive="active-link" >RxJs Operators</a>
+        </li>
+         <li class="nav-item" style="margin-top:-12px;">
+          <a class="nav-link"  routerLink="SubBeh" routerLinkActive="active-link" >Subject / Behaviour subject</a>
+        </li>
+         <li class="nav-item" style="margin-top:-12px;">
+          <a class="nav-link"  routerLink="counter" routerLinkActive="active-link" >Counter</a>
+        </li>
+         <li class="nav-item" style="margin-top:-12px;">
+          <a class="nav-link"  routerLink="singnal" routerLinkActive="active-link" >Signal</a>
+        </li>
+         <li class="nav-item" style="margin-top:-12px;">
+          <a class="nav-link"  routerLink="singnalAdv" routerLinkActive="active-link" >Signal Advanced</a>
+        </li>
       </ul>
       <form class="d-flex">
-        <input class="form-control me-2" type="text" placeholder="Search">
+       <div class="row">
+        <div class="column col-3">
+          <select (change)="onRoleChage($event);">
+            <option>Admin</option>
+             <option>User</option>
+              <option>Guest</option>
+          </select>
+
+        </div>
+
+       </div>
         <button class="btn btn-primary" type="button">Search</button>
       </form>
     </div>

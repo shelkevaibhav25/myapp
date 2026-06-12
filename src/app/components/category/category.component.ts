@@ -2,6 +2,7 @@ import { Component, inject, signal } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { UserService } from '../../services/user.service';
 import { NgClass } from '@angular/common';
+import { of, Subject } from 'rxjs';
 
 @Component({
   selector: 'app-category',
@@ -22,9 +23,22 @@ export class CategoryComponent {
 
   })
 
+  cityList = ["Mumbai", "Pune", "Nagpur"]
+
+  stateList$ = new Subject<[]>();
+
   ngOnInit(){
 
     this.getAllCategories();
+
+    const myObs = of(this.cityList, "Vaibhav")
+
+    myObs.subscribe((data)=>{
+      console.log(data)
+    })
+
+   
+
 
   }
 

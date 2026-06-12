@@ -1,0 +1,48 @@
+<div class="container">
+    <div class="row">
+        <div class="col-2">{{courseName}}</div>
+
+    </div>
+
+</div>
+
+<div class="container">
+    <div>
+        <div class="col-2">{{courseDuration()}}</div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-3">
+            <button class="btn btn-warning" (click)="onDurationChange()">Change Duration</button>
+        </div>
+
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-3">
+            City Name: {{cityList()}}
+            <br>
+            <button class="btn btn-primary" (click)="addCity()">Add City</button>
+            <ul>
+                @for(item of cityList(); track $index){
+                         <li>{{item}}</li>
+                }
+           
+            </ul>
+        </div>
+
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-3">
+            student Name: {{studentObj().name}}
+        </div>
+
+    </div>
+</div>

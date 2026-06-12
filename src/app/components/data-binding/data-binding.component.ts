@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-data-binding',
@@ -11,6 +12,8 @@ export class DataBindingComponent {
 
   courseName:string = "Angular 21"
   courseDuration:string = "3 months"
+
+  userServ = inject(UserService )
 
 
   myInputType = "checkbox"
@@ -36,5 +39,31 @@ export class DataBindingComponent {
   onMouseEnter(){
     console.log("Mouse entered in div")
   }
+
+
+  constructor(){
+
+    this.userServ.roleBehavious$.subscribe((role)=>{
+      debugger
+    })
+    this.userServ.roleSub$.subscribe((role)=>{
+      debugger
+      console.log(role)
+  })
+    
+  }
+
+
+  // ngOnInit(){
+  //    this.userServ.roleSub$.subscribe((role)=>{
+  //     debugger
+  //     console.log(role)
+  // })
+  // }
+
+
+
+
+
 
 }
